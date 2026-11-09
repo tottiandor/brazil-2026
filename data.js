@@ -112,11 +112,11 @@ const DAYS = [
     stay: 'Airbnb, Ipanema' },
 
   { n: 6, date: '2026-11-17', dateLabel: 'NOV 17 · KEDD', city: 'Rio → Salvador', loc: 'rio', loc2: 'salvador', switchAt: '15:00', cam: 'salvador', headline: 'Észak felé', hero: 'farol',
-    transport: [{ icon: '✈️', route: 'Rio de Janeiro → Salvador · LATAM', time: '15:00 → 17:00', flight: 'LA4692', check: 'járatszám megerősítendő' }],
+    transport: [{ icon: '✈️', route: 'Rio de Janeiro → Salvador · LATAM', time: '15:00 → 17:00', flight: 'LA4692' }],
     events: [
       { time: '11:00', title: 'Kijelentkezés', type: 'Szállás · Ipanema', icon: '🧳', desc: 'A kulcsátadást előző este egyeztessük a szállásadóval.' },
       { time: '13:00', title: 'Indulás a reptérre', type: 'Transzfer', icon: '🚕', desc: 'Belföldi járat: kb. másfél órával indulás előtt legyünk kint.' },
-      { time: '15:00', title: 'Rio → Salvador', type: 'Repülés · LATAM LA4692', icon: '🛫', status: 'JÁRATSZÁM MEGERŐSÍTENDŐ' },
+      { time: '15:00', title: 'Rio → Salvador', type: 'Repülés · LATAM LA4692', icon: '🛫' },
       { time: '17:00', title: 'Érkezés Salvadorba (SSA)', type: 'Landolás', icon: '🛬', desc: 'Salvador és Rio ugyanabban az időzónában van, nem kell órát állítani.' },
       { time: '17:45', title: 'Reptér → Ondina', type: 'Transzfer', icon: '🚕', desc: 'Kb. 25 km a parti úton. A check-in 15:00-tól nyitva van, tehát egyenesen mehetünk.' },
       { time: 'Este', title: 'Check-in', type: 'Szállás · Ondina', icon: '🔑', desc: 'Airbnb Ondinában, pár lépésre a parttól. Kijelentkezés szombaton 11:00-ig, de a hajnali gép miatt a kulcsátadást előző este egyeztessük.' },
