@@ -220,3 +220,54 @@ const RAIN_PLACES = {
       h: ['9–22', '9–22', '9–22', '9–22', '9–22', '9–22', '12–21'] },
   ],
 };
+
+// ---- Kötelező körök -----------------------------------------------------------------------
+// Városonként 10 hely, sorrendben. A koordináták a közös Google Térkép-listából, illetve
+// OpenStreetMapról jöttek, mind ellenőrzött. Nyitvatartás szándékosan nincs: amit nem
+// néztünk meg 2026-ra, azt inkább ne írjuk ki. A kártyán a Google Térkép-link ott van.
+const MUST_SEE = {
+  rio: [
+    { name: 'Cristo Redentor', ll: [-22.9519, -43.2105], img: 'commons:cristo', realImg: 1, addr: 'Parque Nacional da Tijuca', area: 'Corcovado', cat: 'latnivalo',
+      d: 'A 710 méteres Corcovado tetején. Fogaskerekűvel a Cosme Velho-i állomásról, vagy hivatalos kisbusszal. Jegyet előre, online érdemes, és tiszta időben korán indulni, mert délre gyakran befelhősödik.' },
+    { name: 'Pão de Açúcar', ll: [-22.9493, -43.1546], img: 'commons:urca', realImg: 1, addr: 'Av. Pasteur, 520', area: 'Urca', cat: 'latnivalo',
+      d: 'Két szakaszban megy fel a bondinho: előbb a Morro da Urcára, onnan a Cukorsüvegre. Naplementére időzítve a legszebb, de olyankor sor van. A Morro da Urcáig gyalog is fel lehet menni.' },
+    { name: 'Praia de Ipanema', ll: [-22.9871, -43.2048], img: 'commons:ipanema', realImg: 1, addr: 'Av. Vieira Souto', area: 'Ipanema', cat: 'latnivalo',
+      d: 'A szállástól pár perc. A posto-oszlopok osztják szakaszokra, mindegyiknek más a közönsége. Az Arpoador-szikláról nézik a naplementét, és tapsolnak a végén.' },
+    { name: 'Praia de Copacabana', ll: [-22.9739, -43.1853], img: 'commons:copacabana', realImg: 1, addr: 'Av. Atlântica', area: 'Copacabana', cat: 'latnivalo',
+      d: 'Négy és fél kilométer part a Portugál-kövezet hullámmintájával. Reggel a futók és a strandröplabda, este a kioszkok. A Posto 6 felőli vége csendesebb.' },
+    { name: 'Escadaria Selarón', ll: [-22.9153, -43.1792], img: 'commons:selaron', realImg: 1, addr: 'R. Manuel Carneiro', area: 'Lapa', cat: 'latnivalo',
+      d: 'Jorge Selarón 215 lépcsőfoka, a világ minden tájáról küldött csempékkel. Ingyenes, bármikor megnézhető, de reggel kevesebben vannak. Esti sötétedés után inkább ne egyedül.' },
+    { name: 'Parque Lage', ll: [-22.9611, -43.2127], addr: 'R. Jardim Botânico, 414', area: 'Jardim Botânico', cat: 'latnivalo',
+      d: 'Régi villa árkádos belső udvarral, a medence mögött közvetlenül a Corcovado látszik. A park ingyenes, a kávézója népszerű reggelizőhely. Innen indul a Corcovadóra vezető gyalogos ösvény is.' },
+    { name: 'Jardim Botânico', ll: [-22.9707, -43.2235], addr: 'R. Jardim Botânico, 1008', area: 'Jardim Botânico', cat: 'latnivalo',
+      d: '1808-ban alapított botanikus kert, a királypálma-fasor a névjegye. Nagy, árnyas, csendes terület, majmokkal és tukánokkal. Fél napot simán elvisz.' },
+    { name: 'Mirante Dona Marta', ll: [-22.945, -43.1964], addr: 'Estrada do Mirante Dona Marta', area: 'Botafogo', cat: 'latnivalo',
+      d: 'A legismertebb kilátó, ahonnan a Cukorsüveg, a Botafogo-öböl és a Guanabara együtt látszik. Gyalog nem jó megközelíteni, taxival vagy Uberrel menjünk, és kérjük meg, hogy várjon meg.' },
+    { name: 'Real Gabinete Português de Leitura', ll: [-22.9053, -43.1822], addr: 'R. Luís de Camões, 30', area: 'Centro', cat: 'latnivalo',
+      d: 'Neomanuelin olvasóterem a 19. századból, háromszintnyi faragott polccal és üvegtetővel. Gyakran szerepel a világ legszebb könyvtárainak listáin. Kicsi, 10-15 perc, de megéri.' },
+    { name: 'Arcos da Lapa', ll: [-22.9126, -43.1799], addr: 'Av. Mem de Sá', area: 'Lapa', cat: 'latnivalo',
+      d: '18. századi vízvezeték, ma a Santa Teresa-i villamos jár a tetején. Alatta a Lapa éjszakai élete, pénteken és szombaton tömeg. Innen indul a villamos fel Santa Teresába.' },
+  ],
+  salvador: [
+    { name: 'Largo do Pelourinho', ll: [-12.9715, -38.5084], img: 'commons:pelourinho', realImg: 1, addr: 'Pelourinho', area: 'Centro Histórico', cat: 'latnivalo',
+      d: 'A világörökségi óváros szíve, pasztellszínű gyarmati házakkal és macskakővel. Kedd esténként élő zene, a környező utcákban műhelyek és galériák. Sötétedés után maradjunk a megvilágított, forgalmas részeken.' },
+    { name: 'Igreja e Convento de São Francisco', ll: [-12.9747, -38.509], img: 'commons:saofrancisco', realImg: 1, addr: 'Largo do Cruzeiro de São Francisco', area: 'Centro Histórico', cat: 'latnivalo',
+      d: 'Brazília leglátványosabb barokk temploma: a belső teret szinte teljesen beborítja az aranyozott faragás. A kerengő falán portugál azulejo-csempék. Belépődíjas.' },
+    { name: 'Elevador Lacerda', ll: [-12.9744, -38.513], img: 'commons:lacerda', realImg: 1, addr: 'Praça Tomé de Souza', area: 'Centro Histórico', cat: 'latnivalo',
+      d: '1873 óta köti össze a felsővárost az alsóval, 72 méteres szintkülönbség, az út kevesebb mint fél perc. Pár centavóba kerül. A tetejéről szép a kilátás a Baía de Todos os Santosra.' },
+    { name: 'Igreja N. S. do Rosário dos Pretos', ll: [-12.9711, -38.5081], addr: 'Largo do Pelourinho', area: 'Centro Histórico', cat: 'latnivalo',
+      d: 'A rabszolgasorba hurcolt afrikaiak testvérisége építette, évtizedeken át, saját erőből. Kék-fehér barokk homlokzat a Pelourinho alsó végén. A miséken dobok és afro-brazil énekek szólnak.' },
+    { name: 'Museu Afro-Brasileiro', ll: [-12.9761, -38.5126], addr: 'Terreiro de Jesus', area: 'Centro Histórico', cat: 'latnivalo',
+      d: 'A bahiai afro-brazil kultúra gyűjteménye a régi orvosi kar épületében. A fő látványosság Carybé tizenhat faragott fapanelje az orixákról. Kicsi múzeum, egy óra bőven elég.' },
+    { name: 'Mercado Modelo', ll: [-12.973, -38.5139], addr: 'Praça Cayru, 250', area: 'Comércio', cat: 'latnivalo',
+      d: 'Kétszintes kézműves- és ajándékpiac a Lacerda-felvonó alsó végénél. Alkudni kell és elvárt. Az emeleti éttermek teraszáról rálátni a kikötőre.' },
+    { name: 'Igreja do Senhor do Bonfim', ll: [-12.9238, -38.5081], img: 'commons:bonfim', realImg: 1, addr: 'Largo do Bonfim', area: 'Bonfim', cat: 'latnivalo',
+      d: 'Bahia legfontosabb kegyhelye, a színes szalagok (fita do Bonfim) innen származnak: három csomó, három kívánság. A sala dos milagres a hálaadó fogadalmi tárgyak terme. A központtól kb. 8 km.' },
+    { name: 'Farol da Barra', ll: [-13.0102, -38.5329], img: 'commons:farol', realImg: 1, addr: 'Largo do Farol da Barra', area: 'Barra', cat: 'latnivalo',
+      d: 'Az amerikai kontinens egyik legrégebbi világítótornya, a Santo Antônio-erődben, benne a Museu Náutico. A földnyelv hegyén áll, ahol az öböl és az óceán találkozik: ez Salvador naplementés helye.' },
+    { name: 'Praia do Porto da Barra', ll: [-13.0032, -38.5329], addr: 'Av. Sete de Setembro', area: 'Barra', cat: 'latnivalo',
+      d: 'Rövid, öbölre néző strand, ezért a víz nyugodt, nem óceáni hullámzás. Napnyugtakor megtelik helyiekkel. Két erőd fogja közre, a Farol da Barrától pár perc séta.' },
+    { name: 'Dique do Tororó', ll: [-12.9853, -38.5071], addr: 'Av. Vasco da Gama', area: 'Tororó', cat: 'latnivalo',
+      d: 'Városi tó, a vízben Tatti Moreno nyolc nagyméretű orixá-szobra áll. Esténként kivilágítják. A part körbejárható, a Fonte Nova stadion közvetlenül mellette.' },
+  ],
+};

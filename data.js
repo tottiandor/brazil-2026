@@ -14,6 +14,11 @@ const PHOTOS = {
   pelo2: { file: 'View over the Pelourinho District - Salvador - Brazil 02.jpg', by: 'Adam Jones' },
   farol: { file: 'Salvador BA.jpg', by: 'Fotos Gov/Ba', lic: 'CC BY 2.0' },
   moqueca: { file: 'Moqueca.jpg', by: 'Gilrovina', lic: 'CC BY-SA 4.0' },
+  cristo: { file: 'Christ the Redeemer - Cristo Redentor.jpg', by: 'Arne Müseler', lic: 'CC BY-SA 3.0 DE' },
+  selaron: { file: 'Colorful Selaron Stairs 3.jpg', by: 'Donatas Dabravolskas', lic: 'CC BY-SA 4.0' },
+  lacerda: { file: 'Elevador Lacerda Salvador Bahia 2019-0359.jpg', by: 'Paul R. Burley', lic: 'CC BY-SA 4.0' },
+  saofrancisco: { file: 'Igreja e Convento de São Francisco (Salvador - Bahia).jpg', by: 'Larissa Thans Carneiro', lic: 'CC BY-SA 4.0' },
+  bonfim: { file: 'Bonfim Church, Salvador 20150720-DSC05483.JPG', by: 'Matti Blume', lic: 'CC BY-SA 4.0' },
 };
 
 // Időjárás-pontok (max. 4 tizedes, a MET Norway kérése szerint).

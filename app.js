@@ -18,7 +18,8 @@ const imgSrc = ref => {
   return kind === 'local' ? `img/places/${key}.jpg` : photoUrl(key, 640);
 };
 
-const state = { current: 0, wx: store.get('trip_met', {}), lists: store.get('trip_lists', {}), rainOpen: false, rainCity: null, deferredInstall: null };
+const state = { current: 0, wx: store.get('trip_met', {}), lists: store.get('trip_lists', {}), rainOpen: false, rainCity: null, deferredInstall: null,
+  geo: null, geoErr: null, fx: store.get('trip_fx', null), rainDone: store.get('trip_rain_done', {}), rainShowDone: false };
 
 // ---- idő ---------------------------------------------------------------------------------
 
@@ -49,6 +50,11 @@ function stayRef(city, date) {
   return s ? { ll: s.ll, label: 'a szállástól' } : DIST_FALLBACK[city];
 }
 const cityOf = ll => (ll[0] > -16 ? 'salvador' : 'rio');
+// Távolság viszonyítási pontja: ha a felhasználó megosztotta a helyzetét, onnan, különben a szállástól.
+function distRef(city, date) {
+  if (state.geo) return { ll: [state.geo.lat, state.geo.lon], label: 'tőled', live: true };
+  return stayRef(city, date);
+}
 
 // ---- időjárás (MET Norway Locationforecast) ------------------------------------------------
 
@@ -165,10 +171,19 @@ function rainBarHTML(d) {
   return `<div class="topbar"><button class="rainbtn${on ? ' on' : ''}" id="rainBtn" aria-expanded="${state.rainOpen}" aria-controls="rainPanel">☔ Ha esik</button><span class="rainhint">${esc(hint)}</span></div>
     <div class="rainpanel${state.rainOpen ? ' open' : ''}" id="rainPanel"></div>`;
 }
+const WD_ON = ['Hétfőn', 'Kedden', 'Szerdán', 'Csütörtökön', 'Pénteken', 'Szombaton', 'Vasárnap'];
 function hoursToday(h, date) {
   if (!h) return null;
-  const t = h[weekdayIdx(date)], when = date === brNow().iso ? 'Ma' : 'Aznap';
+  // "Ma", ha a mai napot nézzük, egyébként a nap neve ("Szerdán"), hogy ne kelljen fejben számolni.
+  const t = h[weekdayIdx(date)], when = date === brNow().iso ? 'Ma' : WD_ON[weekdayIdx(date)];
   return t === 'zárva' ? { closed: true, text: `${when} zárva` } : { closed: false, text: `${when} ${t}` };
+}
+const rainKey = (city, name) => city + '|' + norm(name);
+function rainDoneDate(city, name) { return state.rainDone[rainKey(city, name)] || null; }
+function toggleRainDone(city, name, date) {
+  const k = rainKey(city, name);
+  if (state.rainDone[k]) delete state.rainDone[k]; else state.rainDone[k] = date;
+  store.set('trip_rain_done', state.rainDone);
 }
 function renderRainPanel(d) {
   const el = $('#rainPanel');
@@ -176,23 +191,34 @@ function renderRainPanel(d) {
   const cities = rainCities(d);
   const city = cities.includes(state.rainCity) ? state.rainCity : cityNow(d);
   state.rainCity = city;
-  const ref = stayRef(city, d.date);
-  const list = RAIN_PLACES[city].map(p => ({ ...p, dist: km(ref.ll, p.ll) }));
+  const ref = distRef(city, d.date);
+  const list = RAIN_PLACES[city].map(p => ({ ...p, dist: km(ref.ll, p.ll), done: rainDoneDate(city, p.name) }));
+  // Amit egy korábbi napon kipipáltunk, az a későbbi napokon nem jön elő újra.
+  const hiddenOn = p => !!p.done && p.done < d.date;
+  const hidden = list.filter(hiddenOn);
+  const shown = state.rainShowDone ? list : list.filter(p => !hiddenOn(p));
   const tabs = cities.length > 1 ? `<div class="pfilter">${cities.map(c => `<button class="chip${c === city ? ' on' : ''}" data-rc="${c}">${esc(CITY_NAME[c])}</button>`).join('')}</div>` : '';
   el.innerHTML = `<div class="label">Esős program · ${esc(CITY_NAME[city])}</div><h3>Ha esik, ide menjünk</h3>
-    <p class="sub">Nyitvatartás a Google Térkép szerint, távolság légvonalban ${esc(ref.label)}.</p>
+    <p class="sub">Nyitvatartás a Google Térkép szerint, távolság légvonalban ${esc(ref.label)}. Amit kipipálsz, a későbbi napokról lekerül.</p>
     ${d.holiday ? `<div class="holiday">${esc(d.holiday)}</div>` : ''}${tabs}
     ${Object.entries(RAIN_CATS).map(([k, [icon, label]]) => {
       const shut = p => (hoursToday(p.h, d.date)?.closed ? 1 : 0);
-      const items = list.filter(p => p.k === k).sort((a, b) => shut(a) - shut(b) || a.dist - b.dist);
+      const items = shown.filter(p => p.k === k).sort((a, b) => (a.done ? 1 : 0) - (b.done ? 1 : 0) || shut(a) - shut(b) || a.dist - b.dist);
       if (!items.length) return '';
       return `<div class="rcat"><h4>${icon} ${esc(label)}</h4>${items.map(p => {
         const ht = hoursToday(p.h, d.date);
-        return `<a class="rplace" href="${esc(maps(`${p.name}, ${p.addr}, ${CITY_NAME[city]}`))}" target="_blank" rel="noopener"><b>${esc(p.name)}</b> <small class="rarea">${esc(p.area)}</small><p>${esc(p.d)}</p>
-          <div class="rmeta">${ht ? `<span class="${ht.closed ? 'closed' : 'open'}">${esc(ht.text)}</span>` : ''}<span>📍 ${esc(fmtDist(p.dist))}</span><span class="go">Térkép ↗</span></div></a>`;
+        return `<div class="rplace${p.done ? ' done' : ''}">
+          <button class="rtick" type="button" data-tick="${esc(p.name)}" aria-pressed="${!!p.done}" aria-label="${esc(p.done ? 'Mégsem voltunk itt' : 'Voltunk itt')}: ${esc(p.name)}">✓</button>
+          <a class="rbody" href="${esc(maps(`${p.name}, ${p.addr}, ${CITY_NAME[city]}`))}" target="_blank" rel="noopener"><b>${esc(p.name)}</b> <small class="rarea">${esc(p.area)}</small><p>${esc(p.d)}</p>
+            <div class="rmeta">${p.done ? `<span class="open">✓ ${esc(p.done === d.date ? 'ma kipipálva' : 'megvolt')}</span>` : ht ? `<span class="${ht.closed ? 'closed' : 'open'}">${esc(ht.text)}</span>` : ''}<span>📍 ${esc(fmtDist(p.dist))}</span><span class="go">Térkép ↗</span></div></a>
+        </div>`;
       }).join('')}</div>`;
-    }).join('')}`;
+    }).join('')}
+    ${hidden.length ? `<button class="rdone-toggle" id="rainDoneToggle" type="button">${state.rainShowDone ? 'Elrejtem a megvoltakat' : `Megvolt már ${hidden.length} hely · mutasd`}</button>` : ''}`;
   el.querySelectorAll('[data-rc]').forEach(b => b.onclick = () => { state.rainCity = b.dataset.rc; renderRainPanel(d); });
+  el.querySelectorAll('[data-tick]').forEach(b => b.onclick = () => { toggleRainDone(city, b.dataset.tick, d.date); renderRainPanel(d); });
+  const dt = $('#rainDoneToggle');
+  if (dt) dt.onclick = () => { state.rainShowDone = !state.rainShowDone; renderRainPanel(d); };
 }
 function cityNow(d) { // utazós napon (switchAt) délután már a második város számít
   if (!d.loc2 || !d.switchAt) return d.loc;
@@ -233,6 +259,93 @@ function bindCam() {
   };
 }
 
+// ---- pénzváltó ----------------------------------------------------------------------------
+// Az árfolyamot az open.er-api.com adja (kulcs nélkül, naponta frissül). Letöltés után
+// localStorage-ba kerül, így offline is marad egy utolsó ismert érték, dátummal együtt.
+const FX_URL = 'https://open.er-api.com/v6/latest/BRL';
+const FX_FALLBACK = 'https://api.frankfurter.dev/v1/latest?base=BRL&symbols=HUF';
+const FX_MAX_AGE = 6 * 3600e3;
+const fxFmt = (n, dec) => new Intl.NumberFormat('hu-HU', { minimumFractionDigits: dec, maximumFractionDigits: dec }).format(n);
+
+async function loadFx() {
+  const cached = state.fx;
+  if (cached && Date.now() - cached.at < FX_MAX_AGE) return;
+  const tryOne = async (url, pick) => {
+    const r = await fetch(url);
+    if (!r.ok) throw new Error(r.status);
+    const rate = pick(await r.json());
+    if (!rate || !isFinite(rate)) throw new Error('nincs HUF');
+    return rate;
+  };
+  try {
+    let rate;
+    try { rate = await tryOne(FX_URL, j => j?.rates?.HUF); }
+    catch { rate = await tryOne(FX_FALLBACK, j => j?.rates?.HUF); }
+    state.fx = { rate, at: Date.now() };
+    store.set('trip_fx', state.fx);
+  } catch { state.fxErr = true; }
+  renderFx();
+}
+
+function fxHTML() {
+  return `<div class="fx" id="fxCard">
+    <div class="fxtop"><span class="label">💱 Pénzváltó</span><span class="fxrate" id="fxRate"></span></div>
+    <div class="fxrow">
+      <label class="fxfield"><b>R$</b><input id="fxBrl" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-label="Brazil reál"></label>
+      <button class="fxswap" id="fxSwap" type="button" title="Mezők ürítése" aria-label="Mezők ürítése">⇄</button>
+      <label class="fxfield"><b>Ft</b><input id="fxHuf" type="number" inputmode="decimal" min="0" step="any" placeholder="0" aria-label="Forint"></label>
+    </div>
+    <div class="fxquick" id="fxQuick"></div>
+  </div>`;
+}
+
+function renderFx() {
+  const el = $('#fxRate'); if (!el) return;
+  const fx = state.fx;
+  if (!fx) { el.textContent = state.fxErr ? 'Árfolyam nem jött le' : 'Árfolyam töltése…'; return; }
+  const stale = Date.now() - fx.at > FX_MAX_AGE;
+  el.innerHTML = `1 R$ = <b>${esc(fxFmt(fx.rate, 1))} Ft</b><br>${esc(stale ? 'mentett: ' : '')}${esc(new Intl.DateTimeFormat('hu-HU', { month: 'short', day: 'numeric' }).format(fx.at))}`;
+  const q = $('#fxQuick');
+  if (q) q.innerHTML = [10, 20, 50, 100, 200, 500].map(v => `<button class="fxq" data-brl="${v}">${v} R$ ≈ <b>${esc(fxFmt(Math.round(v * fx.rate), 0))} Ft</b></button>`).join('');
+  if (q) q.querySelectorAll('[data-brl]').forEach(b => b.onclick = () => { $('#fxBrl').value = b.dataset.brl; fxCalc('brl'); });
+}
+
+function fxCalc(from) {
+  const fx = state.fx; if (!fx) return;
+  const brl = $('#fxBrl'), huf = $('#fxHuf');
+  if (from === 'brl') { const v = parseFloat(brl.value); huf.value = isFinite(v) ? Math.round(v * fx.rate) : ''; }
+  else { const v = parseFloat(huf.value); brl.value = isFinite(v) ? (v / fx.rate).toFixed(2) : ''; }
+}
+
+function bindFx() {
+  const brl = $('#fxBrl'), huf = $('#fxHuf');
+  if (!brl) return;
+  brl.oninput = () => fxCalc('brl');
+  huf.oninput = () => fxCalc('huf');
+  $('#fxSwap').onclick = () => { brl.value = ''; huf.value = ''; brl.focus(); };
+  renderFx();
+  loadFx();
+}
+
+// ---- helymeghatározás ----------------------------------------------------------------------
+// Opcionális és mindig a felhasználó indítja. Semmit nem küldünk el, a koordináta csak a
+// böngészőben él, és az oldal bezárásáig tart.
+function geoToggle() {
+  if (state.geo) { state.geo = null; state.geoErr = null; render(state.current); return; }
+  if (!navigator.geolocation) { state.geoErr = 'A böngésző nem tud helyet megosztani.'; render(state.current); return; }
+  const btn = $('#geoBtn');
+  if (btn) btn.textContent = '📍 Keresés…';
+  navigator.geolocation.getCurrentPosition(
+    pos => { state.geo = { lat: pos.coords.latitude, lon: pos.coords.longitude }; state.geoErr = null; render(state.current); },
+    err => { state.geoErr = err.code === 1 ? 'Nem engedélyezted a helymeghatározást.' : 'Nem sikerült megállapítani a helyet.'; render(state.current); },
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
+}
+function geoRowHTML() {
+  const on = !!state.geo;
+  const note = on ? 'A távolságok mostantól tőled számolnak.' : state.geoErr || 'A távolságok a szállástól számolnak.';
+  return `<div class="georow"><button class="geobtn${on ? ' on' : ''}" id="geoBtn" type="button">${on ? '📍 Helyzet bekapcsolva' : '📍 Számolj tőlem'}</button><span class="geonote">${esc(note)}</span></div>`;
+}
+
 // ---- tetején: figyelmeztetés, most, órák --------------------------------------------------
 
 function renderDash() {
@@ -243,6 +356,7 @@ function renderDash() {
       <div class="clock"><span class="label">🇧🇷 Rio / Salvador</span><strong id="clkBR"></strong><small id="clkBRhint"></small></div>
       <div class="clock"><span class="label">🇭🇺 Budapest</span><strong id="clkBP"></strong><small id="clkBPhint"></small></div>
     </div>
+    ${fxHTML()}
     <div class="chips">
       <button class="chip primary" id="installBtn" hidden>📲 Kezdőképernyőre</button>
       <a class="chip" href="#mapSec">🗺️ Térkép</a>
@@ -251,6 +365,7 @@ function renderDash() {
     </div>
     <div id="installHint" class="installhint" hidden></div>`;
   setupInstall();
+  bindFx();
   tick();
 }
 
@@ -390,7 +505,17 @@ function render(i, { scroll = false } = {}) {
   if (dayChanged || !$('#camBox')) $('#content').innerHTML = '<div id="rainBox"></div><div id="camBox"></div><div id="dayBody"></div>';
   if (dayChanged || !$('#camBox iframe')) { $('#camBox').innerHTML = camHTML(d); bindCam(); }
   $('#rainBox').innerHTML = rainBarHTML(d);
-  $('#dayBody').innerHTML = weatherHTML(d) + tr + timeline + dayPlacesHTML(d) + notes + stay + pn;
+  $('#dayBody').innerHTML = weatherHTML(d) + tr + timeline + geoRowHTML() + dayPlacesHTML(d) + mustSeeHTML(d) + notes + stay + pn;
+  const gb = $('#geoBtn');
+  if (gb) gb.onclick = geoToggle;
+  // A lenti nagy lista is a kiválasztott naphoz tartozik: a nyitvatartás annak a napnak szól,
+  // és a város is követi a napot. Enélkül az első nap nyitvatartása ragadt volna ott.
+  if (dayChanged && $('#placesGrid')) {
+    const pc = cityNow(d);
+    if (CITY_NAME[pc]) placeFilter.city = pc;
+    renderPlaces();
+    drawMarkers();
+  }
   const rb = $('#rainBtn');
   if (rb) {
     rb.onclick = () => {
@@ -470,19 +595,32 @@ function placeCardHTML(p, dist) {
   const img = ref ? `<img src="${esc(imgSrc(ref))}" alt="" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'pph',textContent:'${icon}'}))">` : `<div class="pph">${icon}</div>`;
   const badge = dist != null ? `<span class="pbadge">📍 ${esc(fmtDist(dist))}</span>` : p.isNew ? '<span class="pbadge top">Új a listán</span>' : '';
   return `<a class="pcard" href="${esc(placeMaps(p))}" target="_blank" rel="noopener">
-    <div class="pphoto">${img}${badge}${ref ? '<span class="pillus">illusztráció</span>' : ''}</div>
+    <div class="pphoto">${img}${badge}${ref && !p.realImg ? '<span class="pillus">illusztráció</span>' : ''}</div>
     <div class="pbody"><div class="ptag">${icon} ${esc(label)} · ${esc(p.area || '')}</div><h4>${esc(p.name)}</h4>${p.tier ? `<div class="ptier">${esc(TIERS[p.tier])}</div>` : ''}<p>${esc(p.d)}</p>${p.n ? `<p class="pnote">💬 ${esc(p.n)}</p>` : ''}${p.h ? `<p class="phours">${esc(hoursToday(p.h, DAYS[state.current].date).text)}</p>` : ''}<span class="pmap">Térkép ↗</span></div>
   </a>`;
 }
 function dayPlacesHTML(d) {
   const city = cityNow(d);
   if (!CITY_NAME[city]) return '';
-  const ref = stayRef(city, d.date);
+  const ref = distRef(city, d.date);
   const list = placesOf('food').filter(p => p.c === city).map(p => ({ p, dist: km(ref.ll, p.ll) })).sort((a, b) => a.dist - b.dist);
   if (!list.length) return `<div class="section-title"><div class="k">Kaja · ${esc(CITY_NAME[city])}</div><h2>Hol együnk?</h2></div><p class="empty">Ehhez a városhoz még nincs hely a listán. Ha felkerül valami a Brazília gastro listára, napi kétszer ide is átjön.</p>`;
   return `<div class="section-title"><div class="k">Kaja · ${esc(CITY_NAME[city])} · ${esc(ref.label)}</div><h2>Hol együnk?</h2></div>
     <div class="pcarousel">${list.slice(0, 10).map(x => placeCardHTML(x.p, x.dist)).join('')}</div>
     <button class="exploreBtn" onclick="showPlaces('${city}')">Mind a ${list.length} hely és a látnivalók</button>`;
+}
+
+// Kötelező kör: alapból a kézzel sorba rakott sorrend, de ha megosztottad a helyzeted,
+// akkor a hozzád legközelebbi kerül előre.
+function mustSeeHTML(d) {
+  const city = cityNow(d);
+  const list = MUST_SEE[city];
+  if (!list || !list.length) return '';
+  const ref = distRef(city, d.date);
+  const items = list.map((p, i) => ({ p: { ...p, c: city }, dist: km(ref.ll, p.ll), i }));
+  if (state.geo) items.sort((a, b) => a.dist - b.dist); else items.sort((a, b) => a.i - b.i);
+  return `<div class="section-title"><div class="k">Kötelező kör · ${esc(CITY_NAME[city])} · ${esc(ref.label)}</div><h2>Amit látni kell</h2></div>
+    <div class="pcarousel">${items.map(x => placeCardHTML(x.p, x.dist)).join('')}</div>`;
 }
 
 const placeFilter = { city: 'rio', kinds: { food: true, sights: true } };
@@ -497,8 +635,18 @@ function renderPlaces() {
   $('#pKind').innerHTML = Object.entries(LISTS).map(([k, L]) => `<button class="chip${placeFilter.kinds[k] ? ' on' : ''}" data-kind="${k}" aria-pressed="${placeFilter.kinds[k]}">${L.icon} ${esc(L.label)}</button>`).join('');
   const shown = Object.keys(LISTS).filter(k => placeFilter.kinds[k]).flatMap(k => placesOf(k).filter(p => p.c === placeFilter.city));
   const tierOrder = { mindennapi: 1, kulonleges: 2, nagy: 3 };
-  shown.sort((a, b) => (SIGHT_CATS.includes(a.cat) - SIGHT_CATS.includes(b.cat)) || ((tierOrder[a.tier] || 9) - (tierOrder[b.tier] || 9)));
-  $('#placesGrid').innerHTML = shown.length ? shown.map(p => placeCardHTML(p)).join('') : '<p class="empty">Ehhez a szűréshez még nincs hely.</p>';
+  // Kategóriánként egy-egy oldalra húzható sor: a teljes lista így nem nyúlik el képernyőnyi hosszan.
+  const order = Object.keys(PLACE_CATS);
+  const groups = new Map();
+  shown.forEach(p => { const k = PLACE_CATS[p.cat] ? p.cat : 'egyeb'; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); });
+  const keys = [...groups.keys()].sort((a, b) =>
+    (SIGHT_CATS.includes(a) - SIGHT_CATS.includes(b)) || (order.indexOf(a) - order.indexOf(b)));
+  $('#placesGrid').innerHTML = keys.length ? keys.map(k => {
+    const [icon, label] = PLACE_CATS[k];
+    const items = groups.get(k).sort((a, b) => ((tierOrder[a.tier] || 9) - (tierOrder[b.tier] || 9)) || a.name.localeCompare(b.name, 'hu'));
+    return `<div class="prow"><h4>${icon} ${esc(label)} <span>${items.length}</span></h4>
+      <div class="pcarousel">${items.map(p => placeCardHTML(p)).join('')}</div></div>`;
+  }).join('') : '<p class="empty">Ehhez a szűréshez még nincs hely.</p>';
   $('#pCity').querySelectorAll('[data-city]').forEach(b => b.onclick = () => { placeFilter.city = b.dataset.city; renderPlaces(); fitCity(b.dataset.city); });
   $('#pKind').querySelectorAll('[data-kind]').forEach(b => b.onclick = () => { placeFilter.kinds[b.dataset.kind] = !placeFilter.kinds[b.dataset.kind]; renderPlaces(); drawMarkers(); });
   const st = Object.values(state.lists).map(l => l?.updatedAt).filter(Boolean).sort().pop();
@@ -568,7 +716,7 @@ function renderGlobal() {
     <div id="map"></div>
     <div class="legend"><span><i style="background:#c9a95b"></i>étel</span><span><i style="background:#5aa9cf"></i>látnivaló</span><span><i style="background:#14212b"></i>városok</span></div>
     <div class="section-title" id="placesSec"><div class="k">Árkategória szerint</div><h2>Éttermek és helyek</h2></div>
-    <div class="pgrid" id="placesGrid"></div>
+    <div id="placesGrid"></div>
     <p class="hint" id="listStamp"></p>
     <div class="maplinks"><a class="btn secondary" href="${esc(listUrl(LISTS.food.id))}" target="_blank" rel="noopener">🍽️ Étel-lista a Google Térképen</a><a class="btn secondary" href="${esc(listUrl(LISTS.sights.id))}" target="_blank" rel="noopener">🏛️ Látnivaló-lista</a></div>
     <div class="credits">Időjárás: <a href="https://api.met.no/" target="_blank" rel="noopener">MET Norway</a> Locationforecast, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Az adatokat feldolgoztuk (óránkénti nézet, esőjelzés). Nyitvatartások: Google Térkép, 2026. november, ünnepnapon eltérhetnek. Szállásadatok és foglalási kódok nem jelennek meg. ${photoCredits()} Térkép © OpenStreetMap.</div>`;
