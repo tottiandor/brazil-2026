@@ -30,11 +30,11 @@ const WEATHER_LOCS = {
 const LOC_NAME = { rio: 'Rio de Janeiro', salvador: 'Salvador', budapest: 'Budapest' };
 
 // A szállások pontos címe szándékosan nincs az oldalon. A koordináta kerekített (kb. 100 m),
-// csak a távolságokhoz kell. A hiányzókat töltsd ki, ha megvan a foglalás.
+// csak a távolságokhoz kell. Az utolsó riói éjszakára (nov. 21→22.) szándékosan nincs sor:
+// helyben foglaljuk, úgyhogy a 10-11. napon az ipanemai koordináta a távolság-referencia.
 const STAYS = [
   { from: '2026-11-13', to: '2026-11-17', city: 'rio', name: 'Airbnb, Ipanema', ll: [-22.983, -43.204], checkin: '14:00', checkout: '11:00' },
   { from: '2026-11-17', to: '2026-11-21', city: 'salvador', name: 'Airbnb, Ondina', ll: [-13.010, -38.510], checkin: '15:00', checkout: '11:00' },
-  { from: '2026-11-21', to: '2026-11-22', city: 'rio', name: '', ll: null, checkin: '', checkout: '' },
 ];
 // Ha egy városban még nincs szállás, innen számoljuk a távolságot.
 const DIST_FALLBACK = {
@@ -146,7 +146,7 @@ const DAYS = [
       { time: '03:00', title: 'Indulás a reptérre', type: 'Transzfer', icon: '🚕', desc: 'Ondinából kb. 25 km, hajnalban nagyjából fél óra. A kijelentkezés hivatalosan 11:00-ig lenne, de mi jóval előtte megyünk: a kulcsátadást előző este beszéljük meg.' },
       { time: '05:15', title: 'Salvador → Rio', type: 'Repülés · LATAM LA3697', icon: '🛫' },
       { time: '07:20', title: 'Érkezés Rióba (GIG)', type: 'Landolás', icon: '🛬' },
-      { time: 'Délelőtt', title: 'Szállás Rióban', type: 'Helyben foglaljuk', icon: '🏠', status: 'HIÁNYZIK' },
+      { time: 'Délelőtt', title: 'Szállás: helyben foglaljuk', type: 'Egy éjszaka · nov. 21→22.', icon: '🏠', desc: 'Nincs előre lefoglalva, így döntöttünk. 07:20-kor landolunk, a check-in a legtöbb helyen csak 14:00-tól van, úgyhogy a reptérről indulva keressünk. Másnap 12:00-kor megyünk a GIG-re: Copacabanáról és Ipanemából is rövid az út, Botafogo és Flamengo pedig általában olcsóbb. A reptéren is van wifi, ha a gépen nem jutunk neten.' },
     ],
     stay: 'Rio · helyben foglaljuk' },
 
