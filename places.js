@@ -115,6 +115,9 @@ const PLACE_LIST = [
   { name: 'Feira Hippie de Ipanema', ll: [-22.98546, -43.19714], addr: 'Praça General Osório', area: 'Ipanema', c: 'rio', cat: 'piac',
     d: 'Vasárnapi kézműves vásár a szállás közelében. Festmények, bőráru, ruha, utcai kaja.',
     h: ['zárva', 'zárva', 'zárva', 'zárva', 'zárva', 'zárva', '8–18'] },
+  // A Látnivaló-listára került fel. Nyitvatartás szándékosan nincs: a források ellentmondanak egymásnak.
+  { name: 'Palacete das Artes', ll: [-12.99788, -38.52558], addr: 'R. da Graça, 284', area: 'Graça', c: 'salvador', cat: 'latnivalo',
+    d: 'Századfordulós villa kerttel a Graça negyedben. Rodin-szobrok tartós kölcsönben a párizsi Musée Rodintól, mellettük kortárs kiállítások. A nyitvatartásban a források nem egyeznek, és a hírek szerint 2025-ben átnevezték (MAC Bahia), úgyhogy indulás előtt nézzünk rá a Google Térképen. A szállástól kb. 2 km.' },
 ];
 
 // ---- "Ha esik" listák -------------------------------------------------------------------

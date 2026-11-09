@@ -1,7 +1,16 @@
 {
- "updatedAt": "2026-11-09T11:08:11+00:00",
+ "updatedAt": "2026-11-09T14:39:21+00:00",
  "list": "7s9O81HG05cLmfwJA2ma2C1ordADfg",
  "places": [
+  {
+   "name": "Palace of Arts",
+   "addr": "R. da Graça, 284 - Graça, Salvador - BA, 40150-060, Brazília",
+   "ll": [
+    -12.99788,
+    -38.52558
+   ],
+   "note": ""
+  },
   {
    "name": "Praia da Paciencia",
    "addr": "Rio Vermelho, Salvador da Bahia - Bahia, 40170-010, Brazília",

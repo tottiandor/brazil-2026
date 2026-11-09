@@ -33,7 +33,7 @@ const LOC_NAME = { rio: 'Rio de Janeiro', salvador: 'Salvador', budapest: 'Budap
 // csak a távolságokhoz kell. A hiányzókat töltsd ki, ha megvan a foglalás.
 const STAYS = [
   { from: '2026-11-13', to: '2026-11-17', city: 'rio', name: 'Airbnb, Ipanema', ll: [-22.983, -43.204], checkin: '14:00', checkout: '11:00' },
-  { from: '2026-11-17', to: '2026-11-21', city: 'salvador', name: '', ll: null, checkin: '', checkout: '' },
+  { from: '2026-11-17', to: '2026-11-21', city: 'salvador', name: 'Airbnb, Ondina', ll: [-13.010, -38.510], checkin: '15:00', checkout: '11:00' },
   { from: '2026-11-21', to: '2026-11-22', city: 'rio', name: '', ll: null, checkin: '', checkout: '' },
 ];
 // Ha egy városban még nincs szállás, innen számoljuk a távolságot.
@@ -118,17 +118,18 @@ const DAYS = [
       { time: '13:00', title: 'Indulás a reptérre', type: 'Transzfer', icon: '🚕', desc: 'Belföldi járat: kb. másfél órával indulás előtt legyünk kint.' },
       { time: '15:00', title: 'Rio → Salvador', type: 'Repülés · LATAM LA4692', icon: '🛫', status: 'JÁRATSZÁM MEGERŐSÍTENDŐ' },
       { time: '17:00', title: 'Érkezés Salvadorba (SSA)', type: 'Landolás', icon: '🛬', desc: 'Salvador és Rio ugyanabban az időzónában van, nem kell órát állítani.' },
-      { time: 'Este', title: 'Szállás Salvadorban', type: 'Még hiányzik', icon: '🏠', status: 'HIÁNYZIK' },
+      { time: '17:45', title: 'Reptér → Ondina', type: 'Transzfer', icon: '🚕', desc: 'Kb. 25 km a parti úton. A check-in 15:00-tól nyitva van, tehát egyenesen mehetünk.' },
+      { time: 'Este', title: 'Check-in', type: 'Szállás · Ondina', icon: '🔑', desc: 'Airbnb Ondinában, pár lépésre a parttól. Kijelentkezés szombaton 11:00-ig, de a hajnali gép miatt a kulcsátadást előző este egyeztessük.' },
     ],
-    stay: 'Salvador · még nincs megadva' },
+    stay: 'Airbnb, Ondina (15:00-tól)' },
 
   { n: 7, date: '2026-11-18', dateLabel: 'NOV 18 · SZERDA', city: 'Salvador', loc: 'salvador', cam: 'salvador', headline: 'Salvador, első nap', hero: 'pelourinho',
     events: [{ time: 'Napközben', title: 'Még nincs program', type: 'Szabad', icon: '🌴', desc: 'Ha esik, a fenti gombbal jön a salvadori esős lista: múzeumok a Pelourinhóban, piacok, plázák.' }],
-    stay: 'Salvador · még nincs megadva' },
+    stay: 'Airbnb, Ondina' },
 
   { n: 8, date: '2026-11-19', dateLabel: 'NOV 19 · CSÜTÖRTÖK', city: 'Salvador', loc: 'salvador', cam: 'salvador', headline: 'Szabad nap', hero: 'pelo2',
     events: [{ time: 'Napközben', title: 'Még nincs program', type: 'Szabad', icon: '🌴' }],
-    stay: 'Salvador · még nincs megadva' },
+    stay: 'Airbnb, Ondina' },
 
   { n: 9, date: '2026-11-20', dateLabel: 'NOV 20 · PÉNTEK', city: 'Salvador', loc: 'salvador', cam: 'salvador', headline: 'A fekete öntudat napja', hero: 'pelourinho', holiday: 'Nemzeti ünnep (Dia da Consciência Negra): a nyitvatartások eltérhetnek.',
     events: [
@@ -137,12 +138,12 @@ const DAYS = [
       { time: 'Este', title: 'Korai lefekvés', type: 'Hajnali gép', icon: '😴', desc: 'Másnap 05:15-kor repülünk, kb. 03:00-kor indulni kell a reptérre. Taxit vagy Ubert előre egyeztetni.' },
     ],
     notes: ['Nemzeti ünnep: a boltok, múzeumok egy része zárva lehet vagy rövidebben van nyitva.', 'Salvador reptere kb. 30 km a Barrától, hajnalban kb. fél óra.'],
-    stay: 'Salvador · még nincs megadva' },
+    stay: 'Airbnb, Ondina' },
 
   { n: 10, date: '2026-11-21', dateLabel: 'NOV 21 · SZOMBAT', city: 'Salvador → Rio', loc: 'rio', loc2: 'salvador', headline: 'Hajnali gép vissza', hero: 'rio',
     transport: [{ icon: '✈️', route: 'Salvador → Rio de Janeiro · LATAM', time: '05:15 → 07:20', flight: 'LA3697' }],
     events: [
-      { time: '03:00', title: 'Indulás a reptérre', type: 'Transzfer', icon: '🚕', desc: 'Kb. 30 km. Kijelentkezést előző este elintézni.' },
+      { time: '03:00', title: 'Indulás a reptérre', type: 'Transzfer', icon: '🚕', desc: 'Ondinából kb. 25 km, hajnalban nagyjából fél óra. A kijelentkezés hivatalosan 11:00-ig lenne, de mi jóval előtte megyünk: a kulcsátadást előző este beszéljük meg.' },
       { time: '05:15', title: 'Salvador → Rio', type: 'Repülés · LATAM LA3697', icon: '🛫' },
       { time: '07:20', title: 'Érkezés Rióba (GIG)', type: 'Landolás', icon: '🛬' },
       { time: 'Délelőtt', title: 'Szállás Rióban', type: 'Helyben foglaljuk', icon: '🏠', status: 'HIÁNYZIK' },
