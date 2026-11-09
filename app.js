@@ -18,8 +18,11 @@ const imgSrc = ref => {
   return kind === 'local' ? `img/places/${key}.jpg` : photoUrl(key, 640);
 };
 
+// Csak akkor árfolyam, ha tényleg szám. A JSON.stringify eldobja az undefined mezőt, így egy
+// hibás mentés {at:...} alakban marad meg rate nélkül, és onnantól "NaN Ft" látszana.
+const validFx = f => (f && Number.isFinite(f.rate) && Number.isFinite(f.at) ? f : null);
 const state = { current: 0, wx: store.get('trip_met', {}), lists: store.get('trip_lists', {}), rainOpen: false, rainCity: null, deferredInstall: null,
-  geo: null, geoErr: null, fx: store.get('trip_fx', null), rainDone: store.get('trip_rain_done', {}), rainShowDone: false };
+  geo: null, geoErr: null, fx: validFx(store.get('trip_fx', null)), rainDone: store.get('trip_rain_done', {}), rainShowDone: false };
 
 // ---- idő ---------------------------------------------------------------------------------
 
@@ -268,22 +271,39 @@ const FX_MAX_AGE = 6 * 3600e3;
 const fxFmt = (n, dec) => new Intl.NumberFormat('hu-HU', { minimumFractionDigits: dec, maximumFractionDigits: dec }).format(n);
 
 async function loadFx() {
-  const cached = state.fx;
-  if (cached && Date.now() - cached.at < FX_MAX_AGE) return;
+  const cached = validFx(state.fx);
+  state.fx = cached;
+  if (cached && !cached.manual && Date.now() - cached.at < FX_MAX_AGE) return;
+  // Időkorlát kell: net nélkül vagy pocsék mobilneten a fetch magától sosem adja fel,
+  // és a kártya örökre "töltése..." maradna.
   const tryOne = async (url, pick) => {
-    const r = await fetch(url);
-    if (!r.ok) throw new Error(r.status);
-    const rate = pick(await r.json());
-    if (!rate || !isFinite(rate)) throw new Error('nincs HUF');
-    return rate;
+    const ac = new AbortController();
+    const t = setTimeout(() => ac.abort(), 8000);
+    try {
+      const r = await fetch(url, { signal: ac.signal });
+      if (!r.ok) throw new Error(r.status);
+      const rate = Number(pick(await r.json()));
+      if (!Number.isFinite(rate) || rate <= 0) throw new Error('nincs HUF');
+      return rate;
+    } finally { clearTimeout(t); }
   };
+  state.fxLoading = true;
+  renderFx();
   try {
     let rate;
     try { rate = await tryOne(FX_URL, j => j?.rates?.HUF); }
     catch { rate = await tryOne(FX_FALLBACK, j => j?.rates?.HUF); }
     state.fx = { rate, at: Date.now() };
-    store.set('trip_fx', state.fx);
-  } catch { state.fxErr = true; }
+    state.fxErr = false;
+    if (validFx(state.fx)) store.set('trip_fx', state.fx);
+  } catch {
+    state.fxErr = true;
+    // Ha még sosem sikerült lehozni, a config.js-ben tárolt kézi árfolyammal is
+    // használható marad a váltó. Inkább közelítő szám, mint egy halott mező.
+    const fb = CFG.fxFallback;
+    if (!state.fx && fb && Number.isFinite(Number(fb.rate))) state.fx = { rate: Number(fb.rate), at: Date.parse(fb.date + 'T12:00:00Z'), manual: true };
+  }
+  state.fxLoading = false;
   renderFx();
 }
 
@@ -301,17 +321,18 @@ function fxHTML() {
 
 function renderFx() {
   const el = $('#fxRate'); if (!el) return;
-  const fx = state.fx;
-  if (!fx) { el.textContent = state.fxErr ? 'Árfolyam nem jött le' : 'Árfolyam töltése…'; return; }
+  const fx = validFx(state.fx);
+  if (!fx) { el.innerHTML = state.fxLoading ? 'Árfolyam töltése…' : '<u>Árfolyam nem jött le · újra</u>'; return; }
   const stale = Date.now() - fx.at > FX_MAX_AGE;
-  el.innerHTML = `1 R$ = <b>${esc(fxFmt(fx.rate, 1))} Ft</b><br>${esc(stale ? 'mentett: ' : '')}${esc(new Intl.DateTimeFormat('hu-HU', { month: 'short', day: 'numeric' }).format(fx.at))}`;
+  const tag = fx.manual ? 'kézi: ' : stale ? 'mentett: ' : '';
+  el.innerHTML = `1 R$ = <b>${esc(fxFmt(fx.rate, 1))} Ft</b><br>${esc(tag)}${esc(new Intl.DateTimeFormat('hu-HU', { month: 'short', day: 'numeric' }).format(fx.at))}${state.fxErr ? ' · <u>újra</u>' : ''}`;
   const q = $('#fxQuick');
   if (q) q.innerHTML = [10, 20, 50, 100, 200, 500].map(v => `<button class="fxq" data-brl="${v}">${v} R$ ≈ <b>${esc(fxFmt(Math.round(v * fx.rate), 0))} Ft</b></button>`).join('');
   if (q) q.querySelectorAll('[data-brl]').forEach(b => b.onclick = () => { $('#fxBrl').value = b.dataset.brl; fxCalc('brl'); });
 }
 
 function fxCalc(from) {
-  const fx = state.fx; if (!fx) return;
+  const fx = validFx(state.fx); if (!fx) return;
   const brl = $('#fxBrl'), huf = $('#fxHuf');
   if (from === 'brl') { const v = parseFloat(brl.value); huf.value = isFinite(v) ? Math.round(v * fx.rate) : ''; }
   else { const v = parseFloat(huf.value); brl.value = isFinite(v) ? (v / fx.rate).toFixed(2) : ''; }
@@ -323,6 +344,8 @@ function bindFx() {
   brl.oninput = () => fxCalc('brl');
   huf.oninput = () => fxCalc('huf');
   $('#fxSwap').onclick = () => { brl.value = ''; huf.value = ''; brl.focus(); };
+  const rateEl = $('#fxRate');
+  if (rateEl) { rateEl.style.cursor = 'pointer'; rateEl.onclick = () => { state.fx = state.fx && !state.fx.manual ? state.fx : null; state.fxErr = false; loadFx(); }; }
   renderFx();
   loadFx();
 }

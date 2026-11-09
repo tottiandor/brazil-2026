@@ -1,6 +1,6 @@
 // Offline: a saját fájlok hálózat-először (hogy a frissítés megjöjjön), offline a gyorsítótárból.
 // Térkép-csempék, Leaflet és a Commons-fotók: gyorsítótár-először. Időjárás: az app maga tárolja.
-const VERSION = 'v5-2026-11-09';
+const VERSION = 'v7-2026-11-09';
 const SHELL = `shell-${VERSION}`;
 const RUNTIME = 'runtime-v1';
 const SHELL_FILES = [

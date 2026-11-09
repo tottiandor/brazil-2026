@@ -2,6 +2,10 @@
 window.TRIP_CONFIG = {
   repo: 'tottiandor/brazil-2026', // innen jön a frissen szinkronizált Maps-lista (raw.githubusercontent.com)
 
+  // Tartalék árfolyam, ha egyik árfolyam-API sem érhető el (nincs net, vagy a hálózat blokkolja).
+  // Ilyenkor a váltó ezzel számol, és "kézi" jelzéssel mutatja a dátumot. Néha írd át.
+  fxFallback: { rate: 59.2, date: '2026-11-09' },
+
   // Élő kamerák. Ha egy adás leáll, a YouTube-on kikeresett új videó azonosítóját írd a videoId-be.
   // Ellenőrzés: a videó oldalán legyen piros LIVE jelzés, és engedje a beágyazást.
   webcams: {
