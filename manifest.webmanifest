@@ -1,0 +1,16 @@
+{
+  "name": "Brazília 2026",
+  "short_name": "Brazília",
+  "description": "Napi program, élő kamera, időjárás és esős program, nov. 12–23.",
+  "lang": "hu",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8fbfc",
+  "theme_color": "#14212b",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
