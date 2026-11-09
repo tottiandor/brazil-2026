@@ -1,4 +1,393 @@
 {
- "updatedAt": null,
- "places": []
+ "updatedAt": "2026-11-09T11:08:11+00:00",
+ "list": "7s9O81HG05cLmfwJA2ma2C1ordADfg",
+ "places": [
+  {
+   "name": "Praia da Paciencia",
+   "addr": "Rio Vermelho, Salvador da Bahia - Bahia, 40170-010, Brazília",
+   "ll": [
+    -13.01084,
+    -38.49705
+   ],
+   "note": ""
+  },
+  {
+   "name": "Church of Our Lady of the Rosary of the Black People",
+   "addr": "Largo do Pelourinho, s/n - Centro Histórico, Salvador - BA, 40026-280, Brazília",
+   "ll": [
+    -12.97114,
+    -38.50809
+   ],
+   "note": ""
+  },
+  {
+   "name": "Bahia Museum of Art",
+   "addr": "Av. Sete de Setembro, 2340 - Corredor da Vitória, Salvador - BA, 40080-004, Brazília",
+   "ll": [
+    -12.99366,
+    -38.52596
+   ],
+   "note": ""
+  },
+  {
+   "name": "R. do Senado - Centro",
+   "addr": "Centro, Rio de Janeiro, Brazília",
+   "ll": [
+    -22.91001,
+    -43.18726
+   ],
+   "note": ""
+  },
+  {
+   "name": "Paróquia Nossa Senhora da Vitória",
+   "addr": "Largo da Vitória, s/n - Vitória, Salvador - BA, 40080-600, Brazil",
+   "ll": [
+    -12.99618,
+    -38.528
+   ],
+   "note": ""
+  },
+  {
+   "name": "da Piedade Square",
+   "addr": "Praça da Piedade, S/N - Dois de Julho, Salvador - BA, 40070-210, Brazil",
+   "ll": [
+    -12.98909,
+    -38.52146
+   ],
+   "note": ""
+  },
+  {
+   "name": "House and Chapel of the Former Quinta do Unhão",
+   "addr": "Av. Lafayete Coutinho - Comércio, Salvador - BA, 40015-250, Brazil",
+   "ll": [
+    -12.98203,
+    -38.51988
+   ],
+   "note": ""
+  },
+  {
+   "name": "Church and Convent of San Francisco",
+   "addr": "Largo do Cruzeiro de São Francisco, S/N - Centro Histórico, Salvador - BA, 40020-280, Brazil",
+   "ll": [
+    -12.9747,
+    -38.50903
+   ],
+   "note": ""
+  },
+  {
+   "name": "Cultural Afro Brazilian Museum",
+   "addr": "R. das Vassouras, 25 - Centro Histórico, Salvador - BA, 40020-056, Brazil",
+   "ll": [
+    -12.97606,
+    -38.51259
+   ],
+   "note": ""
+  },
+  {
+   "name": "Casa do Benin",
+   "addr": "R. Pe Agostinho Gomes, 17 - Centro Histórico, Salvador - BA, 40025-005, Brazil",
+   "ll": [
+    -12.97062,
+    -38.50799
+   ],
+   "note": ""
+  },
+  {
+   "name": "Museu Náutico da Bahia - Farol da Barra",
+   "addr": "Largo do Farol da Barra, S/N - Barra, Salvador - BA, 40140-650, Brazil",
+   "ll": [
+    -13.0102,
+    -38.53292
+   ],
+   "note": ""
+  },
+  {
+   "name": "Monumento à Cidade de Salvador - BA",
+   "addr": "Av. Lafayete Coutinho, 58 - Comércio, Salvador - BA, 40301-110, Brazil",
+   "ll": [
+    -12.974,
+    -38.51432
+   ],
+   "note": ""
+  },
+  {
+   "name": "Elevador Lacerda",
+   "addr": "Praça Tomé de Souza, S/N - Centro, Salvador - BA, 40020-000, Brazil",
+   "ll": [
+    -12.97443,
+    -38.51303
+   ],
+   "note": ""
+  },
+  {
+   "name": "Mercado Modelo",
+   "addr": "Praça Maria Felipa, s/n - Comércio, Salvador - BA, 40015-170, Brazil",
+   "ll": [
+    -12.97304,
+    -38.51392
+   ],
+   "note": ""
+  },
+  {
+   "name": "Pedra do Sal",
+   "addr": "",
+   "ll": [
+    -22.89798,
+    -43.18533
+   ],
+   "note": ""
+  },
+  {
+   "name": "Eonarium Genesis: Um espetáculo imersivo de luzes na Basílica Imaculada \nConceição",
+   "addr": "Praia de Botafogo, 266 - Botafogo, Rio de Janeiro - RJ, 22250-145, Brazil",
+   "ll": [
+    -22.94352,
+    -43.18219
+   ],
+   "note": ""
+  },
+  {
+   "name": "Escada Bandeira do Brasil",
+   "addr": "R. Eduardo Jansen - Saúde, Rio de Janeiro - RJ, 20081-100, Brazília",
+   "ll": [
+    -22.89789,
+    -43.18339
+   ],
+   "note": ""
+  },
+  {
+   "name": "Museu de Arte Contemporânea de Niterói",
+   "addr": "Mirante da Boa Viagem, s/nº - Boa Viagem, Niterói - RJ, 24210-390, Brazil",
+   "ll": [
+    -22.90781,
+    -43.12573
+   ],
+   "note": ""
+  },
+  {
+   "name": "Abricó Beach",
+   "addr": "",
+   "ll": [
+    -23.04832,
+    -43.52351
+   ],
+   "note": ""
+  },
+  {
+   "name": "Morro Dois Irmãos Hike",
+   "addr": "",
+   "ll": [
+    -22.99661,
+    -43.24611
+   ],
+   "note": ""
+  },
+  {
+   "name": "Duque de Caxias Fort",
+   "addr": "",
+   "ll": [
+    -22.96326,
+    -43.16196
+   ],
+   "note": ""
+  },
+  {
+   "name": "Parque Lage",
+   "addr": "R. Jardim Botânico, 414 - Jardim Botânico, Rio de Janeiro - RJ, 22461-000, Brazília",
+   "ll": [
+    -22.96112,
+    -43.21272
+   ],
+   "note": ""
+  },
+  {
+   "name": "Mirante do Leblon",
+   "addr": "Av. Niemeyer - Vidigal, Rio de Janeiro - RJ, 22450-220, Brazília",
+   "ll": [
+    -22.99012,
+    -43.22751
+   ],
+   "note": ""
+  },
+  {
+   "name": "Arcos da Lapa",
+   "addr": "Lapa, Rio de Janeiro, 20031-040, Brazília",
+   "ll": [
+    -22.91264,
+    -43.17986
+   ],
+   "note": ""
+  },
+  {
+   "name": "Praça Mauá",
+   "addr": "Rio de Janeiro, Brazília",
+   "ll": [
+    -22.89642,
+    -43.18115
+   ],
+   "note": ""
+  },
+  {
+   "name": "Rio Museum of Art",
+   "addr": "Praça Mauá, 5 - Saúde, Rio de Janeiro - RJ, 20081-240, Brazília",
+   "ll": [
+    -22.89666,
+    -43.18196
+   ],
+   "note": ""
+  },
+  {
+   "name": "Mosteiro de São Bento",
+   "addr": "R. Dom Gerardo, 68 - Centro, Rio de Janeiro - RJ, 20090-030, Brazília",
+   "ll": [
+    -22.89712,
+    -43.17799
+   ],
+   "note": ""
+  },
+  {
+   "name": "Botanical Garden of Rio de Janeiro",
+   "addr": "R. Jardim Botânico, 1008 - Jardim Botânico, Rio de Janeiro - RJ, 22460-030, Brazília",
+   "ll": [
+    -22.97068,
+    -43.22348
+   ],
+   "note": ""
+  },
+  {
+   "name": "Real Gabinete Português de Leitura",
+   "addr": "R. Luís de Camões, 30 - Centro, Rio de Janeiro - RJ, 20051-020, Brazília",
+   "ll": [
+    -22.90532,
+    -43.18224
+   ],
+   "note": ""
+  },
+  {
+   "name": "Theatro Municipal do Rio de Janeiro",
+   "addr": "Praça Floriano, S/N - Centro, Rio de Janeiro - RJ, 20031-050, Brazília",
+   "ll": [
+    -22.90905,
+    -43.17656
+   ],
+   "note": ""
+  },
+  {
+   "name": "Paço Imperial",
+   "addr": "Praça Quinze de Novembro, 48 - Centro, Rio de Janeiro - RJ, 20010-010, Brazília",
+   "ll": [
+    -22.90355,
+    -43.17424
+   ],
+   "note": ""
+  },
+  {
+   "name": "Estação Cosme Velho",
+   "addr": "R. Cosme Velho, 513 - Cosme Velho, Rio de Janeiro - RJ, 22241-091, Brazília",
+   "ll": [
+    -22.94126,
+    -43.19871
+   ],
+   "note": ""
+  },
+  {
+   "name": "Trilha do Morro da Urca",
+   "addr": "Av. Pasteur, 520 - Urca, Rio de Janeiro - RJ, 22290-240, Brazília",
+   "ll": [
+    -22.95247,
+    -43.16075
+   ],
+   "note": ""
+  },
+  {
+   "name": "Museu do Amanhã",
+   "addr": "Praça Mauá, 1 - Centro, Rio de Janeiro - RJ, 20081-240, Brazília",
+   "ll": [
+    -22.89402,
+    -43.17944
+   ],
+   "note": ""
+  },
+  {
+   "name": "Mirante Dona Marta",
+   "addr": "Estr. Mirante Dona Marta, S/N - Cosme Velho, Rio de Janeiro - RJ, Brazília",
+   "ll": [
+    -22.945,
+    -43.1964
+   ],
+   "note": ""
+  },
+  {
+   "name": "Museu Histórico Nacional",
+   "addr": "Praça Mal. Âncora, s/n - Centro, Rio de Janeiro - RJ, 20021-200, Brazília",
+   "ll": [
+    -22.9057,
+    -43.16961
+   ],
+   "note": ""
+  },
+  {
+   "name": "Catedral Metropolitana de São Sebastião do Rio de Janeiro",
+   "addr": "Av. República do Chile, 245 - Centro, Rio de Janeiro - RJ, 20031-170, Brazília",
+   "ll": [
+    -22.91069,
+    -43.18068
+   ],
+   "note": ""
+  },
+  {
+   "name": "Museu de Arte Moderna do Rio de Janeiro",
+   "addr": "Av. Infante Dom Henrique, 85 - Parque do Flamengo, Rio de Janeiro - RJ, 20021-140, Brazília",
+   "ll": [
+    -22.91375,
+    -43.1718
+   ],
+   "note": ""
+  },
+  {
+   "name": "Ipanema Beach",
+   "addr": "Rio de Janeiro, Brazília",
+   "ll": [
+    -22.98706,
+    -43.2048
+   ],
+   "note": ""
+  },
+  {
+   "name": "Copacabana Beach",
+   "addr": "Rio de Janeiro, Brazília",
+   "ll": [
+    -22.97387,
+    -43.18531
+   ],
+   "note": ""
+  },
+  {
+   "name": "Cukorsüveg-hegy",
+   "addr": "Urca, Rio de Janeiro, Brazília",
+   "ll": [
+    -22.94926,
+    -43.15458
+   ],
+   "note": ""
+  },
+  {
+   "name": "Escadaria Selarón",
+   "addr": "R. Manuel Carneiro - Santa Teresa, Rio de Janeiro - RJ, 20241-120, Brazília",
+   "ll": [
+    -22.91529,
+    -43.1792
+   ],
+   "note": ""
+  },
+  {
+   "name": "A Megváltó Krisztus szobra",
+   "addr": "Parque Nacional da Tijuca - Alto da Boa Vista, Rio de Janeiro - RJ, Brazília",
+   "ll": [
+    -22.95192,
+    -43.21049
+   ],
+   "note": ""
+  }
+ ]
 }

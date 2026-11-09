@@ -1,4 +1,483 @@
 {
- "updatedAt": null,
- "places": []
+ "updatedAt": "2026-11-09T11:08:10+00:00",
+ "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
+ "places": [
+  {
+   "name": "SURU • bar",
+   "addr": "R. da Lapa, 151 - Lapa, Rio de Janeiro - RJ, 20021-180, Brazil",
+   "ll": [
+    -22.91593,
+    -43.17755
+   ],
+   "note": ""
+  },
+  {
+   "name": "Labuta Mar",
+   "addr": "R. do Russel, 450 - Lj B - Glória, Rio de Janeiro - RJ, 22210-010, Brazil",
+   "ll": [
+    -22.92254,
+    -43.17377
+   ],
+   "note": ""
+  },
+  {
+   "name": "Chopperia Botafogo",
+   "addr": "R. Sorocaba, 585 - Botafogo, Rio de Janeiro - RJ, 22271-110, Brazil",
+   "ll": [
+    -22.955,
+    -43.18896
+   ],
+   "note": ""
+  },
+  {
+   "name": "R. do Senado - Centro",
+   "addr": "R. do Senado - Centro, Rio de Janeiro - RJ, Brazil",
+   "ll": [
+    -22.90967,
+    -43.18608
+   ],
+   "note": ""
+  },
+  {
+   "name": "Zazá Bistrô Tropical",
+   "addr": "R. Joana Angélica, 40 - Ipanema, Rio de Janeiro - RJ, 22420-030, Brazil",
+   "ll": [
+    -22.98545,
+    -43.2049
+   ],
+   "note": ""
+  },
+  {
+   "name": "Quartinho Bar",
+   "addr": "R. Arnaldo Quintela, 124 - Botafogo, Rio de Janeiro - RJ, 22280-070, Brazil",
+   "ll": [
+    -22.95586,
+    -43.18487
+   ],
+   "note": ""
+  },
+  {
+   "name": "Cozinha nigeriana da Latifa",
+   "addr": "Praça Paris - Glória, Rio de Janeiro - RJ, 20551-010, Brazil",
+   "ll": [
+    -22.91812,
+    -43.17593
+   ],
+   "note": ""
+  },
+  {
+   "name": "Galeto Sat's",
+   "addr": "R. Barata Ribeiro, 7 - Lj D - Copacabana, Rio de Janeiro - RJ, 22011-001, Brazil",
+   "ll": [
+    -22.96248,
+    -43.17614
+   ],
+   "note": ""
+  },
+  {
+   "name": "MENG - Copacabana",
+   "addr": "R. Domingos Ferreira, 236 - Copacabana, Rio de Janeiro - RJ, 22050-012, Brazil",
+   "ll": [
+    -22.97554,
+    -43.1888
+   ],
+   "note": ""
+  },
+  {
+   "name": "Peixoto Bar",
+   "addr": "R. Anita Garibaldi, 60 - Copacabana, Rio de Janeiro - RJ, 22041-080, Brazil",
+   "ll": [
+    -22.96807,
+    -43.1888
+   ],
+   "note": ""
+  },
+  {
+   "name": "Origem Bahía",
+   "addr": "R. Leovigildo de Carvalho, 3 - Pelourinho, Salvador - BA, 40026-070, Brazil",
+   "ll": [
+    -12.972,
+    -38.50863
+   ],
+   "note": ""
+  },
+  {
+   "name": "Restaurante Manga",
+   "addr": "Rua Professora Almerinda Dultra, 40 - Rio Vermelho, Salvador - BA, 41950-090, Brazil",
+   "ll": [
+    -13.01256,
+    -38.49122
+   ],
+   "note": ""
+  },
+  {
+   "name": "Amado",
+   "addr": "Av. Lafayete Coutinho, 660 - Comércio, Salvador - BA, 40015-160, Brazil",
+   "ll": [
+    -12.97857,
+    -38.51722
+   ],
+   "note": ""
+  },
+  {
+   "name": "Carvão - Salvador",
+   "addr": "R. Prof. Sabino Silva, 5 - Chame-Chame, Salvador - BA, 40157-250, Brazil",
+   "ll": [
+    -13.0057,
+    -38.52146
+   ],
+   "note": ""
+  },
+  {
+   "name": "R. Arnaldo Quintela - Botafogo",
+   "addr": "R. Arnaldo Quintela - Botafogo, Rio de Janeiro - RJ, 22280-070, Brazil",
+   "ll": [
+    -22.95532,
+    -43.18311
+   ],
+   "note": ""
+  },
+  {
+   "name": "Churrascaria Palace",
+   "addr": "R. Rodolfo Dantas, 16 - Copacabana, Rio de Janeiro - RJ, 22020-040, Brazil",
+   "ll": [
+    -22.96662,
+    -43.17839
+   ],
+   "note": ""
+  },
+  {
+   "name": "La Carioca Cevicheria Ipanema",
+   "addr": "Rua Garcia d'Avila, 173 - Lj A - Ipanema, Rio de Janeiro - RJ, 22421-010, Brazil",
+   "ll": [
+    -22.98226,
+    -43.20925
+   ],
+   "note": ""
+  },
+  {
+   "name": "Quiosque Dumare",
+   "addr": "Posto 3 - Av. Atlântica - Copacabana, Rio de Janeiro - RJ, 22021-001, Brazil",
+   "ll": [
+    -22.97094,
+    -43.18308
+   ],
+   "note": ""
+  },
+  {
+   "name": "Barraca 42",
+   "addr": "",
+   "ll": [
+    -22.98662,
+    -43.20505
+   ],
+   "note": ""
+  },
+  {
+   "name": "Boteco Belmonte - Lapa",
+   "addr": "Av. Mem de Sá, 82 - Lapa, Rio de Janeiro - RJ, 20230-152, Brazil",
+   "ll": [
+    -22.91306,
+    -43.18164
+   ],
+   "note": ""
+  },
+  {
+   "name": "Yayá Comidaria Pop Brasileira",
+   "addr": "",
+   "ll": [
+    -22.96251,
+    -43.16886
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Maria e o Boi",
+   "addr": "",
+   "ll": [
+    -22.98262,
+    -43.20713
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Miam Miam",
+   "addr": "",
+   "ll": [
+    -22.95602,
+    -43.17997
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Koral Restaurante",
+   "addr": "",
+   "ll": [
+    -22.98289,
+    -43.20783
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Mäska",
+   "addr": "",
+   "ll": [
+    -22.98287,
+    -43.205
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Nosso",
+   "addr": "",
+   "ll": [
+    -22.98335,
+    -43.20718
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Lilia",
+   "addr": "",
+   "ll": [
+    -22.90918,
+    -43.18401
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Rudä Restaurante",
+   "addr": "",
+   "ll": [
+    -22.98343,
+    -43.20905
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "OCYÁ | Ilha",
+   "addr": "",
+   "ll": [
+    -23.00049,
+    -43.31124
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Ocyá",
+   "addr": "",
+   "ll": [
+    -22.98535,
+    -43.22728
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "ESCAMA",
+   "addr": "",
+   "ll": [
+    -22.96509,
+    -43.21968
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Quinta da Henriqueta",
+   "addr": "",
+   "ll": [
+    -22.96479,
+    -43.22021
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Henriqueta",
+   "addr": "",
+   "ll": [
+    -22.985,
+    -43.2277
+   ],
+   "note": "Everyday / moderate"
+  },
+  {
+   "name": "Térèze",
+   "addr": "",
+   "ll": [
+    -22.92178,
+    -43.18786
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Marine Restô",
+   "addr": "",
+   "ll": [
+    -22.9861,
+    -43.18928
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Sud, o pássaro verde",
+   "addr": "",
+   "ll": [
+    -22.96577,
+    -43.22028
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Aprazível",
+   "addr": "",
+   "ll": [
+    -22.92483,
+    -43.18746
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Giuseppe Grill",
+   "addr": "",
+   "ll": [
+    -22.98353,
+    -43.223
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Rufino Parrilla",
+   "addr": "",
+   "ll": [
+    -22.97865,
+    -43.2236
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Rubaiyat Rio",
+   "addr": "",
+   "ll": [
+    -22.97049,
+    -43.22241
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Clan BBQ",
+   "addr": "",
+   "ll": [
+    -22.98412,
+    -43.2275
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Nôa Ipanema",
+   "addr": "",
+   "ll": [
+    -22.98306,
+    -43.20929
+   ],
+   "note": "Special occasion"
+  },
+  {
+   "name": "Lasai",
+   "addr": "",
+   "ll": [
+    -22.98596,
+    -43.20738
+   ],
+   "note": "Splurge"
+  },
+  {
+   "name": "Oro",
+   "addr": "",
+   "ll": [
+    -22.98604,
+    -43.22478
+   ],
+   "note": "Splurge"
+  },
+  {
+   "name": "Oseille",
+   "addr": "",
+   "ll": [
+    -22.98297,
+    -43.20499
+   ],
+   "note": "Splurge"
+  },
+  {
+   "name": "Oteque",
+   "addr": "",
+   "ll": [
+    -22.95747,
+    -43.1943
+   ],
+   "note": "Splurge"
+  },
+  {
+   "name": "Corrientes 348",
+   "addr": "",
+   "ll": [
+    -22.92004,
+    -43.16973
+   ],
+   "note": ""
+  },
+  {
+   "name": "Restaurante Casa de Tereza",
+   "addr": "",
+   "ll": [
+    -13.01387,
+    -38.48772
+   ],
+   "note": ""
+  },
+  {
+   "name": "Ré Restaurante Dona Suzana",
+   "addr": "",
+   "ll": [
+    -12.98426,
+    -38.52168
+   ],
+   "note": ""
+  },
+  {
+   "name": "Theatro Municipal do Rio de Janeiro",
+   "addr": "Praça Floriano, S/N - Centro, Rio de Janeiro - RJ, 20031-050, Brazília",
+   "ll": [
+    -22.90905,
+    -43.17656
+   ],
+   "note": ""
+  },
+  {
+   "name": "Paço Imperial",
+   "addr": "Praça Quinze de Novembro, 48 - Centro, Rio de Janeiro - RJ, 20010-010, Brazília",
+   "ll": [
+    -22.90355,
+    -43.17424
+   ],
+   "note": ""
+  },
+  {
+   "name": "Estação Cosme Velho",
+   "addr": "R. Cosme Velho, 513 - Cosme Velho, Rio de Janeiro - RJ, 22241-091, Brazília",
+   "ll": [
+    -22.94126,
+    -43.19871
+   ],
+   "note": ""
+  },
+  {
+   "name": "Confeitaria Colombo",
+   "addr": "R. Gonçalves Dias, 32 - Centro, Rio de Janeiro - RJ, 20050-030, Brazília",
+   "ll": [
+    -22.90521,
+    -43.17877
+   ],
+   "note": ""
+  }
+ ]
 }
