@@ -1,7 +1,34 @@
 {
- "updatedAt": "2026-11-09T14:39:20+00:00",
+ "updatedAt": "2026-11-10T03:58:28+00:00",
  "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
  "places": [
+  {
+   "name": "Marius Degustare",
+   "addr": "Av. Atlântica, 290 - Copacabana, Rio de Janeiro - RJ, 22010-000, Brazília",
+   "ll": [
+    -22.96212,
+    -43.1663
+   ],
+   "note": ""
+  },
+  {
+   "name": "Padaria Ipanema",
+   "addr": "R. Visc. de Pirajá, 325 - Ipanema, Rio de Janeiro - RJ, 22410-001, Brazil",
+   "ll": [
+    -22.98437,
+    -43.20487
+   ],
+   "note": ""
+  },
+  {
+   "name": "Bip Bip",
+   "addr": "R. Alm. Gonçalves, 50 - Lj D - Copacabana, Rio de Janeiro - RJ, 22060-040, Brazil",
+   "ll": [
+    -22.97983,
+    -43.19037
+   ],
+   "note": ""
+  },
   {
    "name": "SURU • bar",
    "addr": "R. da Lapa, 151 - Lapa, Rio de Janeiro - RJ, 20021-180, Brazil",
