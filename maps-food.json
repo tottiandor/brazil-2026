@@ -1,7 +1,34 @@
 {
- "updatedAt": "2026-11-10T17:31:51+00:00",
+ "updatedAt": "2026-11-13T02:26:57+00:00",
  "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
  "places": [
+  {
+   "name": "Ceviche RJ Flamengo",
+   "addr": "R. Sen. Vergueiro, 44 A - Flamengo, Rio de Janeiro - RJ, 22230-001, Brazil",
+   "ll": [
+    -22.93449,
+    -43.17592
+   ],
+   "note": ""
+  },
+  {
+   "name": "Ceviche RJ",
+   "addr": "R. Arnaldo Quintela, 66 - Loja B - Botafogo, Rio de Janeiro - RJ, 22280-070, Brazil",
+   "ll": [
+    -22.95511,
+    -43.18313
+   ],
+   "note": ""
+  },
+  {
+   "name": "Crudo Bar",
+   "addr": "R. General Polidoro, 156 - Botafogo, Rio de Janeiro - RJ, 22280-005, Brazil",
+   "ll": [
+    -22.95586,
+    -43.18543
+   ],
+   "note": ""
+  },
   {
    "name": "Recôncavo Culinária",
    "addr": "",
