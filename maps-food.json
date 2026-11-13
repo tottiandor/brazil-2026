@@ -1,7 +1,16 @@
 {
- "updatedAt": "2026-11-13T02:26:57+00:00",
+ "updatedAt": "2026-11-13T17:32:42+00:00",
  "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
  "places": [
+  {
+   "name": "Restaurante Peruano Intihuasi",
+   "addr": "R. Barão do Flamengo, 35 - Flamengo, Rio de Janeiro - RJ, 22220-080, Brazil",
+   "ll": [
+    -22.9332,
+    -43.17596
+   ],
+   "note": ""
+  },
   {
    "name": "Ceviche RJ Flamengo",
    "addr": "R. Sen. Vergueiro, 44 A - Flamengo, Rio de Janeiro - RJ, 22230-001, Brazil",
