@@ -1,7 +1,25 @@
 {
- "updatedAt": "2026-11-09T14:39:21+00:00",
+ "updatedAt": "2026-11-14T01:59:22+00:00",
  "list": "7s9O81HG05cLmfwJA2ma2C1ordADfg",
  "places": [
+  {
+   "name": "Rua Garcia d'Avila",
+   "addr": "Rio de Janeiro, 22421-010, Brazília",
+   "ll": [
+    -22.98344,
+    -43.20919
+   ],
+   "note": ""
+  },
+  {
+   "name": "Feira Hippie de Ipanema",
+   "addr": "Praça General Osório - Ipanema, Rio de Janeiro - RJ, 22410-020, Brazília",
+   "ll": [
+    -22.98546,
+    -43.19714
+   ],
+   "note": ""
+  },
   {
    "name": "Palace of Arts",
    "addr": "R. da Graça, 284 - Graça, Salvador - BA, 40150-060, Brazília",
