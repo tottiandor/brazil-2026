@@ -1,7 +1,97 @@
 {
- "updatedAt": "2026-11-14T01:59:22+00:00",
+ "updatedAt": "2026-11-15T16:50:33+00:00",
  "list": "7s9O81HG05cLmfwJA2ma2C1ordADfg",
  "places": [
+  {
+   "name": "Altino Arantes Building",
+   "addr": "Rua João Brícola, 24 - Centro, São Paulo - SP, 01014-900, Brazília",
+   "ll": [
+    -23.5458,
+    -46.63404
+   ],
+   "note": ""
+  },
+  {
+   "name": "Brazilian Art Museum",
+   "addr": "R. Alagoas, 903 - Higienópolis, São Paulo - SP, 01242-902, Brazília",
+   "ll": [
+    -23.54511,
+    -46.66257
+   ],
+   "note": ""
+  },
+  {
+   "name": "Museu Catavento",
+   "addr": "Avenida Mercúrio, Parque Dom Pedro II, s/n, São Paulo - SP, 03003-060, Brazília",
+   "ll": [
+    -23.54441,
+    -46.62735
+   ],
+   "note": ""
+  },
+  {
+   "name": "São Paulo Múzeum",
+   "addr": "Av. Paulista, 1578 - Bela Vista, São Paulo - SP, 01310-200, Brazília",
+   "ll": [
+    -23.56143,
+    -46.65588
+   ],
+   "note": ""
+  },
+  {
+   "name": "Sé Metropolitan Cathedral",
+   "addr": "Praça da Sé - Sé, São Paulo - SP, 01001-000, Brazília",
+   "ll": [
+    -23.55128,
+    -46.63434
+   ],
+   "note": ""
+  },
+  {
+   "name": "Mercado Municipal de São Paulo",
+   "addr": "R. da Cantareira, 306 - Centro Histórico de São Paulo, São Paulo - SP, 01024-900, Brazília",
+   "ll": [
+    -23.54202,
+    -46.62941
+   ],
+   "note": ""
+  },
+  {
+   "name": "Praça da República",
+   "addr": "Praça da República, 386 - 7º Andar - Cj 71 - República, São Paulo - SP, 01045-000, Brazília",
+   "ll": [
+    -23.54328,
+    -46.64256
+   ],
+   "note": ""
+  },
+  {
+   "name": "Pinacoteca de São Paulo",
+   "addr": "Praça da Luz, 2 - Luz, São Paulo - SP, 01120-010, Brazília",
+   "ll": [
+    -23.53436,
+    -46.63368
+   ],
+   "note": ""
+  },
+  {
+   "name": "Copan",
+   "addr": "Av. Ipiranga, 200 - Centro Histórico de São Paulo, São Paulo - SP, 01046-010, Brazília",
+   "ll": [
+    -23.54661,
+    -46.64485
+   ],
+   "note": ""
+  },
+  {
+   "name": "Centro Cultural Banco do Brasil (CCBB)",
+   "addr": "R. Primeiro de Março, 66 - Centro, Rio de Janeiro - RJ, 20010-000, Brazília",
+   "ll": [
+    -22.90106,
+    -43.17652
+   ],
+   "note": ""
+  },
   {
    "name": "Rua Garcia d'Avila",
    "addr": "Rio de Janeiro, 22421-010, Brazília",
