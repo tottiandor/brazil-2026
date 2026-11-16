@@ -1,7 +1,16 @@
 {
- "updatedAt": "2026-11-13T17:32:42+00:00",
+ "updatedAt": "2026-11-16T20:02:05+00:00",
  "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
  "places": [
+  {
+   "name": "Nusa Café",
+   "addr": "R. Vinícius de Moraes, 129 - Lj B - Ipanema, Rio de Janeiro - RJ, 22411-010, Brazil",
+   "ll": [
+    -22.98342,
+    -43.20294
+   ],
+   "note": ""
+  },
   {
    "name": "Restaurante Peruano Intihuasi",
    "addr": "R. Barão do Flamengo, 35 - Flamengo, Rio de Janeiro - RJ, 22220-080, Brazil",
