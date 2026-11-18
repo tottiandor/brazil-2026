@@ -1,7 +1,70 @@
 {
- "updatedAt": "2026-11-16T20:02:05+00:00",
+ "updatedAt": "2026-11-18T03:21:56+00:00",
  "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
  "places": [
+  {
+   "name": "Cafélier",
+   "addr": "R. do Carmo, 50 - Santo Antônio Além do Carmo, Salvador - BA, 40301-380",
+   "ll": [
+    -12.96805,
+    -38.50741
+   ],
+   "note": ""
+  },
+  {
+   "name": "Di Janela - Gastronomia, Restô, Bar",
+   "addr": "992968700 - R. da Glória, 09 - Saúde, Salvador - BA, 40045-140",
+   "ll": [
+    -12.97185,
+    -38.50554
+   ],
+   "note": ""
+  },
+  {
+   "name": "Poró Restaurante & Bar",
+   "addr": "R. Direita de Santo Antônio, 445 - Santo Antônio Além do Carmo, Salvador - BA, 40301-280",
+   "ll": [
+    -12.96443,
+    -38.50461
+   ],
+   "note": ""
+  },
+  {
+   "name": "Café e Cana Botequim",
+   "addr": "R. do Carmo, 25 - Santo Antônio Além do Carmo, Salvador - BA, 40301-380, Brazil",
+   "ll": [
+    -12.96762,
+    -38.50703
+   ],
+   "note": ""
+  },
+  {
+   "name": "Restaurante Zanzibar",
+   "addr": "R. Direita de Santo Antônio, 60-B - Santo Antônio Além do Carmo, Salvador - BA, 40301-280",
+   "ll": [
+    -12.9664,
+    -38.50572
+   ],
+   "note": ""
+  },
+  {
+   "name": "Ori Restaurante",
+   "addr": "Av. Santa Luzia, 656 - 11 - Horto Florestal, Salvador - BA, 40295-050, Brazil",
+   "ll": [
+    -13.00092,
+    -38.48626
+   ],
+   "note": ""
+  },
+  {
+   "name": "Dona Mariquita - Cozinha Patrimonial da Bahia",
+   "addr": "R. do Meio, 178 - Rio Vermelho, Salvador - BA, 41490-426, Brazil",
+   "ll": [
+    -13.01306,
+    -38.4866
+   ],
+   "note": ""
+  },
   {
    "name": "Nusa Café",
    "addr": "R. Vinícius de Moraes, 129 - Lj B - Ipanema, Rio de Janeiro - RJ, 22411-010, Brazil",
