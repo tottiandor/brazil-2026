@@ -1,7 +1,34 @@
 {
- "updatedAt": "2026-11-15T16:50:33+00:00",
+ "updatedAt": "2026-11-18T18:41:11+00:00",
  "list": "7s9O81HG05cLmfwJA2ma2C1ordADfg",
  "places": [
+  {
+   "name": "Restaurante Portal do Pelô",
+   "addr": "R. das Portas do Carmo, 33 - Centro Histórico, Salvador - BA, 40026-290, Brazília",
+   "ll": [
+    -12.97217,
+    -38.50905
+   ],
+   "note": ""
+  },
+  {
+   "name": "Santo Antônio",
+   "addr": "Salvador da Bahia - Bahia, 40301-110, Brazília",
+   "ll": [
+    -12.96574,
+    -38.50439
+   ],
+   "note": ""
+  },
+  {
+   "name": "Teatro Miguel Santana",
+   "addr": "R. Maciel de Baixo, 49 - Centro Histórico, Salvador - BA, 40026-240, Brazil",
+   "ll": [
+    -12.97211,
+    -38.5083
+   ],
+   "note": ""
+  },
   {
    "name": "Altino Arantes Building",
    "addr": "Rua João Brícola, 24 - Centro, São Paulo - SP, 01014-900, Brazília",

@@ -1,7 +1,88 @@
 {
- "updatedAt": "2026-11-18T03:21:56+00:00",
+ "updatedAt": "2026-11-18T18:41:10+00:00",
  "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
  "places": [
+  {
+   "name": "O Cravinho",
+   "addr": "Largo Terreiro de Jesus, 3 - Centro Histórico, Salvador - BA, 40026-010, Brazil",
+   "ll": [
+    -12.97314,
+    -38.51031
+   ],
+   "note": ""
+  },
+  {
+   "name": "Acarajé da Cira",
+   "addr": "Largo da Mariquita - Rio Vermelho, Salvador - BA, 41940-380, Brazil",
+   "ll": [
+    -13.01339,
+    -38.48849
+   ],
+   "note": ""
+  },
+  {
+   "name": "Blue Beach Bar",
+   "addr": "R. Barro Vermelho, 310 - Rio Vermelho, Salvador - BA, 41940-340, Brazil",
+   "ll": [
+    -13.01425,
+    -38.48245
+   ],
+   "note": ""
+  },
+  {
+   "name": "Acarajé da Dinha",
+   "addr": "Largo de Santana - Rio Vermelho, Salvador - BA, 41950-650",
+   "ll": [
+    -13.01141,
+    -38.49189
+   ],
+   "note": ""
+  },
+  {
+   "name": "Cuco Bistrô",
+   "addr": "Largo do Cruzeiro de São Francisco, 6 - Centro Histórico, Salvador - BA, 40020-280",
+   "ll": [
+    -12.97379,
+    -38.50939
+   ],
+   "note": ""
+  },
+  {
+   "name": "Monica´s Bar",
+   "addr": "Gamboa de baixo - R. Barbosa Leal, N° 31 - Gamboa de baixo, Salvador - BA, 40020-745, Brazil",
+   "ll": [
+    -12.98657,
+    -38.52352
+   ],
+   "note": ""
+  },
+  {
+   "name": "Restaurante Escola Senac Pelourinho",
+   "addr": "Largo do Pelourinho, 13 - Centro Histórico, Salvador - BA, 40026-280, Brazil",
+   "ll": [
+    -12.97143,
+    -38.50823
+   ],
+   "note": ""
+  },
+  {
+   "name": "Boteco do França",
+   "addr": "R. Borges dos Reis, 24-A - Rio Vermelho, Salvador - BA, 41950-600, Brazil",
+   "ll": [
+    -13.01333,
+    -38.49007
+   ],
+   "note": ""
+  },
+  {
+   "name": "Restaurante Mistura Contorno",
+   "addr": "Cloc Marina Residence - Ladeira do Gabriel, 334 - Dois de Julho, Salvador - BA, 40301-110, Brazil",
+   "ll": [
+    -12.98209,
+    -38.51944
+   ],
+   "note": ""
+  },
   {
    "name": "Cafélier",
    "addr": "R. do Carmo, 50 - Santo Antônio Além do Carmo, Salvador - BA, 40301-380",
