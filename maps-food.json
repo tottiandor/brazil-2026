@@ -1,7 +1,16 @@
 {
- "updatedAt": "2026-11-18T18:41:10+00:00",
+ "updatedAt": "2026-11-19T02:57:10+00:00",
  "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
  "places": [
+  {
+   "name": "Restaurante Portal do Pelô",
+   "addr": "R. das Portas do Carmo, 33 - Centro Histórico, Salvador - BA, 40026-290, Brazil",
+   "ll": [
+    -12.97217,
+    -38.50905
+   ],
+   "note": ""
+  },
   {
    "name": "O Cravinho",
    "addr": "Largo Terreiro de Jesus, 3 - Centro Histórico, Salvador - BA, 40026-010, Brazil",

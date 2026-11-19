@@ -1,13 +1,13 @@
 {
- "updatedAt": "2026-11-18T18:41:11+00:00",
+ "updatedAt": "2026-11-19T02:57:11+00:00",
  "list": "7s9O81HG05cLmfwJA2ma2C1ordADfg",
  "places": [
   {
-   "name": "Restaurante Portal do Pelô",
-   "addr": "R. das Portas do Carmo, 33 - Centro Histórico, Salvador - BA, 40026-290, Brazília",
+   "name": "Beco do Batman",
+   "addr": "R. Medeiros de Albuquerque, 82-154 - Jardim das Bandeiras, São Paulo - SP, 05436-060, Brazília",
    "ll": [
-    -12.97217,
-    -38.50905
+    -23.55664,
+    -46.68658
    ],
    "note": ""
   },
