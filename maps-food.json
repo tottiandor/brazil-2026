@@ -1,7 +1,70 @@
 {
- "updatedAt": "2026-11-19T18:54:04+00:00",
+ "updatedAt": "2026-11-20T02:51:58+00:00",
  "list": "Kt88p0iXJ5Ld9NV8FMJHCkt3GBjgoA",
  "places": [
+  {
+   "name": "É um Bar!",
+   "addr": "R. Direita de Santo Antônio, 122 - casa - Santo Antônio Além do Carmo, Salvador - BA, 40301-280",
+   "ll": [
+    -12.96481,
+    -38.50493
+   ],
+   "note": ""
+  },
+  {
+   "name": "Cuia Café e Restaurante",
+   "addr": "Av. Ipiranga, 200 - Lj 48 - República, São Paulo - SP, 01046-010, Brazil",
+   "ll": [
+    -23.54622,
+    -46.64394
+   ],
+   "note": ""
+  },
+  {
+   "name": "A Casa do Porco Bar",
+   "addr": "R. Araújo, 124 - República, São Paulo - SP, 01220-020, Brazil",
+   "ll": [
+    -23.54491,
+    -46.64473
+   ],
+   "note": ""
+  },
+  {
+   "name": "Jiquitaia",
+   "addr": "Rua Coronel Oscar Porto, 808 - Paraíso, São Paulo - SP, 04003-004, Brazil",
+   "ll": [
+    -23.57624,
+    -46.64583
+   ],
+   "note": ""
+  },
+  {
+   "name": "TUJU",
+   "addr": "R. Frei Galvão, 135 - Jardim Paulistano, São Paulo - SP, 01454-060, Brazil",
+   "ll": [
+    -23.58043,
+    -46.68578
+   ],
+   "note": ""
+  },
+  {
+   "name": "A Figueira Rubaiyat",
+   "addr": "Rua Haddock Lobo, 1738 - Cerqueira César, São Paulo - SP, 01414-002, Brazil",
+   "ll": [
+    -23.56535,
+    -46.66969
+   ],
+   "note": ""
+  },
+  {
+   "name": "D.O.M.",
+   "addr": "R. Barão de Capanema, 549 - Jardins, São Paulo - SP, 01411-011, Brazil",
+   "ll": [
+    -23.56632,
+    -46.66757
+   ],
+   "note": ""
+  },
   {
    "name": "Boteco da Sereia",
    "addr": "Beco da Sereia, 7 - Saúde, Salvador - BA, 40045-060, Brazil",

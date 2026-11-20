@@ -1,7 +1,25 @@
 {
- "updatedAt": "2026-11-19T02:57:11+00:00",
+ "updatedAt": "2026-11-20T02:51:58+00:00",
  "list": "7s9O81HG05cLmfwJA2ma2C1ordADfg",
  "places": [
+  {
+   "name": "R. Oscar Freire",
+   "addr": "São Paulo, Brazília",
+   "ll": [
+    -23.56052,
+    -46.67185
+   ],
+   "note": ""
+  },
+  {
+   "name": "RV Locker | Guarda Bagagem no Centro de SP",
+   "addr": "Praca Pedro Lessa, 110 - 3º Andar - Sala 314 - Centro Histórico de São Paulo, São Paulo - SP, 01032-030, Brazil",
+   "ll": [
+    -23.54214,
+    -46.63549
+   ],
+   "note": ""
+  },
   {
    "name": "Beco do Batman",
    "addr": "R. Medeiros de Albuquerque, 82-154 - Jardim das Bandeiras, São Paulo - SP, 05436-060, Brazília",
