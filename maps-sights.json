@@ -1,7 +1,34 @@
 {
- "updatedAt": "2026-11-20T02:51:58+00:00",
+ "updatedAt": "2026-11-21T02:59:49+00:00",
  "list": "7s9O81HG05cLmfwJA2ma2C1ordADfg",
  "places": [
+  {
+   "name": "Casa das Rosas",
+   "addr": "Av. Paulista, 37 - Bela Vista, São Paulo - SP, 01311-000, Brazília",
+   "ll": [
+    -23.57107,
+    -46.64516
+   ],
+   "note": ""
+  },
+  {
+   "name": "Japan House São Paulo",
+   "addr": "Av. Paulista, 52 - Bela Vista, São Paulo - SP, 01310-900, Brazília",
+   "ll": [
+    -23.5705,
+    -46.6446
+   ],
+   "note": ""
+  },
+  {
+   "name": "Sesc Avenida Paulista",
+   "addr": "Av. Paulista, 119 - Bela Vista, São Paulo - SP, 01311-903, Brazília",
+   "ll": [
+    -23.57052,
+    -46.64562
+   ],
+   "note": ""
+  },
   {
    "name": "R. Oscar Freire",
    "addr": "São Paulo, Brazília",
